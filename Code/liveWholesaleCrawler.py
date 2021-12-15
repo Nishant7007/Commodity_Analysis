@@ -1,5 +1,7 @@
 from packagesLoader import *
 from liveCommonFilesLoader import *
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -38,25 +40,25 @@ def extractWholesaleData():
 	THIS SCRIPT WILL DOWNLOAD DATA FROM AGMARKNET WEBSITE FROM 
 	MONTH LAST MONTH BACK AND CURRENT MONTH
 	'''
-	chrome_location = '/home/nishantmeraj/Commodity_Analysis/chromedriver89'
+	chrome_location = '../chromedriver'
 	endDate = str(date.today())
 	#startDate = str(date.today() + relativedelta(months=-1))
 	startDate = '2020-12-01'
 	datesList = getDatesList(startDate, endDate)
 	commodityListAG = list(dictAG['COMMODITY'].keys())
-	for commodity in commodityListAG[0:1]:
+	for commodity in commodityListAG:
 		states = dictAG['COMMODITY'][commodity]
-		for state in states[2:3]:
+		for state in states:
 			for current in datesList:
 				year = current[0]
 				month = current[1]
 				fileName = '../Data/Original/WholesaleRaw/'+str(commodity).upper()+'/'+str(state).upper()+'/mynewdata_'+str(year)+'_'+str(month)+'.csv'
 				print(commodity, state)
 
-				## THIS WILL NOT SKIP FILE IF IT ALREADY EXISTS
-				# if(path.exists(fileName)):
-				# 	print('file Exists, skipping')
-				# 	continue
+				# THIS WILL NOT SKIP FILE IF IT ALREADY EXISTS
+				if(path.exists(fileName)):
+					print('file Exists, skipping')
+					continue
 				# else:
 				print(fileName)
 				print('have to download')
@@ -64,16 +66,17 @@ def extractWholesaleData():
 				        print(i,'th time')
 				        try:
 				        	print('1',end=' ')
-				        	driver = webdriver.Chrome(chrome_location, options=chrome_options)
+				        	s = Service(chrome_location)
+				        	driver = webdriver.Chrome(service= s, options=chrome_options)
 				        	print('2',end=' ')
 				        	driver.get('http://agmarknet.gov.in/PriceAndArrivals/DatewiseCommodityReport.aspx#')
 				        	print('3',end=' ')
-				        	driver.find_element_by_xpath("//*[@id=\"cphBody_cboYear\"]/option[contains(text(),\""+str(year)+"\")]").click()
+				        	driver.find_element(By.XPATH, "//*[@id=\"cphBody_cboYear\"]/option[contains(text(),\""+str(year)+"\")]").click()
 				        	driver.implicitly_wait(600)
 				        	for k in range(10):
 				        		try:
 				        			print(k,end=' ')
-				        			driver.find_element_by_xpath("//*[@id=\"cphBody_cboMonth\"]/option[contains(text(),\""+str(month)+"\")]").click()
+				        			driver.find_element(By.XPATH, "//*[@id=\"cphBody_cboMonth\"]/option[contains(text(),\""+str(month)+"\")]").click()
 				        			driver.implicitly_wait(20)
 				        			break
 				        		except (StaleElementReferenceException) as x:
@@ -83,23 +86,23 @@ def extractWholesaleData():
 		        			driver.implicitly_wait(600)
 
 		        			print('7',end=' ')
-		        			driver.find_element_by_xpath("//*[@id=\"cphBody_cboState\"]/option[contains(text(),\""+str(state)+"\")]").click()
+		        			driver.find_element(By.XPATH, "//*[@id=\"cphBody_cboState\"]/option[contains(text(),\""+str(state)+"\")]").click()
 		        			driver.implicitly_wait(600)
 
 		        			print('8',end=' ')
-		        			driver.find_element_by_xpath("//*[@id=\"cphBody_cboCommodity\"]/option[contains(text(),\""+str(commodity)+"\")]").click()
+		        			driver.find_element(By.XPATH, "//*[@id=\"cphBody_cboCommodity\"]/option[contains(text(),\""+str(commodity)+"\")]").click()
 
 		        			print('10',end=' ')
 		        			driver.implicitly_wait(600)
 		        			print('downloading data')
 
-		        			driver.find_element_by_xpath("//*[@id=\"cphBody_btnSubmit\"]").click()
-		        			table = driver.find_element_by_xpath("//*[@id=\"cphBody_gridRecords\"]")
-		        			rows = table.find_elements_by_tag_name("tr")
+		        			driver.find_element(By.XPATH, "//*[@id=\"cphBody_btnSubmit\"]").click()
+		        			table = driver.find_element(By.XPATH, "//*[@id=\"cphBody_gridRecords\"]")
+		        			rows = table.find_elements(By.TAG_NAME,"tr")
 
 		        			st = ''
 		        			for row in rows:
-		        				cells = row.find_elements_by_xpath(".//*[local-name(.)='th' or local-name(.)='td']")
+		        				cells = row.find_elements(By.XPATH, ".//*[local-name(.)='th' or local-name(.)='td']")
 		        				for cell in cells:
 		        					st += cell.text+','
 	        					st+='\n'
@@ -112,7 +115,6 @@ def extractWholesaleData():
         				except(NoSuchElementException,StaleElementReferenceException) as e:
         					i+=1
         					print("NR")
-        					driver.close()
-        					continue			
+        					driver.close()			
 
 extractWholesaleData()

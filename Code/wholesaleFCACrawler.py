@@ -20,9 +20,12 @@ import joblib
 import os, sys
 from pathlib import Path
 import pandas as pd
+from selenium.webdriver.chrome.service import Service
 
 
 
+chrome_location = '../chromedriver'
+s = Service(chrome_location)
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -45,12 +48,12 @@ class FCA:
 
         # Change Here
         self.start_date = self.string2date("01/01/2018")
-        self.end_date = self.string2date("20/09/2020")
+        self.end_date = self.string2date("31/12/2021")
 
 
         self.url = "https://fcainfoweb.nic.in/reports/report_menu_web.aspx"
         #self.browser = webdriver.Chrome()
-        self.browser = webdriver.Chrome(chrome_options=chrome_options)
+        self.browser = webdriver.Chrome(service=s, chrome_options=chrome_options)
         #self.browser = webdriver.Firefox()
         
         self.select_report_type_id = "ctl00_MainContent_Ddl_Rpt_type"
@@ -250,13 +253,16 @@ class FCA:
         bs = BeautifulSoup(self.browser.page_source, 'html.parser')
         
         # relavent tables
-        tables = bs.find_all('table', attrs={'bordercolor': 'black'})
+        # tables = bs.find_all('table', attrs={'bordercolor': 'black'})
+        tables = bs.find_all('table')
         if len(tables) == 0:
             print("No data")
             return (True, "No data")
         
         header_length = 0
         data = []
+        print(len(tables))
+        print(tables)
         for table_no, table in enumerate(tables):
             table_body = table.find('tbody')
             rows = table_body.find_all('tr')
@@ -280,7 +286,7 @@ class FCA:
 ###########################################
 ###########################################
 
-# initlaize obect
+# initialize object
 fca = FCA()
 
 fca.scrapeMulti("wholesale")
@@ -288,4 +294,3 @@ fca.scrapeMulti("wholesale")
 
 
 fca.browser.close()
-

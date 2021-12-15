@@ -33,4 +33,4 @@ def formatData(directory):
                                 df.to_csv(toSave, index = False) 
 
 
-# formatData("../Data/Original/WholesaleRaw")      
+formatData("../Data/Original/WholesaleRaw")      

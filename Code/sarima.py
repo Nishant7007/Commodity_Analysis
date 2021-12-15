@@ -20,25 +20,27 @@
 import pmdarima as pm
 from liveCommonFilesLoader import *
 
-l = ['SUGAR']
 def sarimaModel():
 	for commodity in commodityList:
-		if (commodity not in l):
-			continue
 		folderToOpen = os.path.join("../Data/PlottingData", str(commodity), 'Original')
 		files = os.listdir(folderToOpen)
 		files.sort()
-		print(files)
 		for file in files:
 			startTime = time.time()
 			print(commodity, file)
 			fileToOpen = os.path.join(folderToOpen, file)
-			fileToSave = fileToOpen.replace('Original','Sarima')
+			fileToSave = fileToOpen.replace('Original','Sarima_Final')
+			if(os.path.exists(fileToSave)):
+				print('FILE EXISTS')
+				continue
 			df = pd.read_csv(fileToOpen)
 			cols = df.columns.tolist()
 			startDate = df.loc[0,'DATE']
 			series = df[cols[1]]
 			n = len(series)
+			startIndex = df[df['DATE'] == '2017-01-01'].index[0]
+			# startIndex = 2100
+			# print(startIndex)
 			df.set_index('DATE', drop=True, inplace=True)
 			exog = pd.DataFrame({'date': df.index})
 			exog = exog.set_index(pd.PeriodIndex(exog['date'], freq='D'))
@@ -48,7 +50,9 @@ def sarimaModel():
 				exog[sin365i] = np.sin(2 * i * np.pi * exog.index.dayofyear / 365.25)
 				exog[cos365i] = np.cos(2 * i * np.pi * exog.index.dayofyear / 365.25)
 			exog = exog.drop(columns=['date'])
-			startIndex = 1462
+
+
+		# 	startIndex = 1462
 			forecastedSeries = series[:startIndex].tolist()
 			while(startIndex<n):
 				print(startIndex,n)
@@ -60,7 +64,7 @@ def sarimaModel():
 					predictions = model.predict(30,exogenous=exogToPredict)
 					forecastedSeries = list(forecastedSeries + predictions.tolist())
 				else:
-					vals = n - startIndex
+					vals = int(n - startIndex)
 					exogToPredict = exog[startIndex:startIndex+vals]
 					predictions = model.predict(vals,exogenous=exogToPredict)
 					forecastedSeries = list(forecastedSeries + predictions.tolist())
@@ -73,18 +77,14 @@ def sarimaModel():
 			predictions = model.predict(30,exogenous=exogToPredict)
 			forecastedSeries = list(forecastedSeries + predictions.tolist())
 
-			print(len(forecastedSeries), len(df))
+			# print(len(forecastedSeries), len(df))
 			
 			forecastedDf = pd.DataFrame(columns = cols)
 			forecastedDf[cols[0]] = pd.date_range(start=str(startDate), periods=len(forecastedSeries))
 			forecastedDf[cols[1]] = forecastedSeries
 			forecastedDf.to_csv(fileToSave,index=False)
 			print("Time taken %s" %(time.time()-startTime))
-			break
-		break
 
 #print(commodityList)
 sarimaModel()
 print('SARIMA')
-
-print(neighbouringMandiInfoDf)

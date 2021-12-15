@@ -1,0 +1,356 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>
+	Daily Retail/Wholesale Report
+</title><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="-1"><meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+
+<script type="text/javascript">
+
+    function PrintPanel() {
+        var panel = document.getElementById("Panel1");
+        //document.getElementById('Panel1').style.visibility = true;
+        document.getElementById('Panel1').style.visibility = 'visible';
+        var printWindow = window.open('', '', '');
+        printWindow.document.write('<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1;charset=utf-8" /><style type="text/css"> @media print{ @page {size:landscape;margin:0px auto;}} @page {size:landscape;}</style></head><body style=font-size:16px; padding:0px;>');
+        printWindow.document.write(panel.innerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        setTimeout(function () {
+            //printWindow.print();
+        }, 500);
+        return false;
+    }
+    </script>
+
+     <style type="text/css">
+        @media print
+        {
+            .MyCssClass thead
+            {
+                display: table-header-group;
+            }
+        
+            .test1 thead
+            {
+                display: table-header-group;
+            }
+            .test1 tfoot
+            {
+                display: table-footer-group;
+            }
+        }
+        .style5
+        {
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1" method="post" action="./Report_daily1_Web_New.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="fwBFEt98Vm8t6zwRVuQK3e9OIDzAwHySZm8Lzth31oa8q6QURpZYI0wfrSt7WZzLOHq2TxFQhZzupaXzHaYRj+MD2uP0I3qtnqIcym4LH9DS1RIVlDa0v1QfljOtdGx6rUCl7S4Ujk2DhtwCGoDHc9XVnqWoX2TWhZhYVM6pcNqKjl+LQQ3X5uZEJglCocGpCuKUrPrlZCggdYfDI56xWitai01SpgIXHRMD+yUGXffJLZBIr40trw3ss5upXbpMXuxCwh1zi0XjVE2TWUCxHJuXI8qUkyzbfvDa1RAwgBp6bYBAemEORjtI/s5Pxe7O3AE8nPKTGXmLWF6lSQbZY+GompdKQENAbAdOPRjEw/aiVfUSoy/wchoPApeY7YezHOM/zc8622QqL9YcQq7nV2KrdHojsu10J86+wH+U0uotw6aGtxsXzLHUdML0yX6Ly4TcWk2CbiHQ8KX+aohCOPaZtKAc4/73vbyFUta40oMXNQ+WuEe+bPSbqKBKlpoRJhSxATSbnlyiyyBA0uTV50Ljq59rX/l3IL/aFyWMuM9TW5NMPSxKLHggpCdaazGB3O2bo6lwDQTVyYyg0hiAT1PHYy6WvmYWOAOXliGuJRwhiEvOnx3PcJgbyhQW9qREczxmHk4TA2fYG4vuWMbgjRssJOURpwejTRXqh2fyKciCqMXapLXDk5aKtSVFlIXJYBT4ICHs7QnGcuWUhrDZwlBU7ota/WM85SGo5NMzFdr68V7/YSHn5FqB9CEkGmuhi/XJVTgDseRbqeKLuOyGPPyD/c+7K+tkoLWLXZsKWNyTD8kDmmqVYyXsPlCOiKn9vBkp+YGqQipO4gw7Ar0Unr8mfVOuQvjNBm1gBHi9C49Wr+DngNdJAoc/frK1IBFu/5r9A6dBd88sw72yX11KaEiiLTsjgKG31bsB4BH1/pQoGj0gqKC81Nb406//NMER/z/uid06rmegD2MaGiMcWmrgQ0MloSmh3gqlQ551NS7pfwNELXWFdIlq+SFo8t/xI6sd8oTfsaRjPlyOt3abN5uf/JRavRfnq32zqSYJ0eujznphIv47xEGmSocLC/m8ihOl100E+EIV91L5Zib5vW1NwRkWVJS2zo7GxhCF/nOstxAbFwgC1FuTC7yDXkVyuykqEQGxlpgQ66C09m8XAJaCp/Sju1+u++3xSz+6MUwtVRrAfwKuIYowhdARULzOw9qgP5RGhkGj0nBBBIuUiNjdMVVmSW5SGccHX77f8kvmJcEeiuxDJgRldkgnkHLVHj53Vovqf2BKruNkZ9sJaBsmRbOukkR3W4U2NUFYBqplYAIeZcmr60AhKyTWo1LUsgc/6U+ej9KImsUTfPQLENxnTrZzxY2O2/du1W3++bEAZrkT4h5cxUNyffUNptS3H1MK5jsWEPkrAMHLxQs/ufkRQ4Zo5mH396BzcUHRvRslM56lmIhi13l4OQmMv7CPQYCT5TJJ361eL0Bd7wvqZvzc6kK7brMgDwCatQL5umJLmsxIeFCxtnI7Y0yvCm4aXlt5QgWrH/eKZlCCm/+4GMhH9OJyRwVQCjyP6pNUIipOmItWAWSmHHDFV2bX8CjATXWNSaeIjdL0VEm/D4BHHBfLuU4wAcV2ZN/i4Ut4WVOjTOkm0DgeLcQhu4vz9Su/zRQlS/vCrqXhX7U3s9g8dAfNkSFMgKAeNUqrY8Xjf/le0QYljn0lyt5eXeEPTbxz">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9DEEE0D3">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="F1GeuEHIdR+/Xb8F4e7WWwxDP06gqiSVf/gIHRRVfkKS1LX6JjH7cIEz/Gs7CpgUjwBQWmPPPkQsAsdDhN3/suLAEFpY3RSM+5qopyQxLHqpF03VYrUMEMOmhnUEbcrlcELoIyygQXIkeMkFbzvMnexUwXcXblZj9U6sLBXplEM=">
+</div>
+        <div class="style5" align="center">
+        <table>
+            <tbody><tr>
+                <td>
+                    <input type="submit" name="btn_back" value="Back" id="btn_back" style="font-size:XX-Small;position: relative; top: 0px; left: 3px; width: 46px; height: 21px;">
+                    <input type="submit" name="btn_print" value="Print" onclick="return PrintPanel();" id="btn_print" style="font-size:XX-Small;position: relative; top: 0px; left: 3px; width: 46px">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <div id="Panel1">
+	
+                    <div class="test1"><table style="margin:auto;"><thead><tr><td><div><div style="width:20%; float:left;">&nbsp;</div><div style="width:60%; float:left; text-align:center;"><b>Department of Consumer Affairs&nbsp;( Price Monitoring Division)</b></div><table width="90%" align="center"><tbody><tr><td align="left"><font size="3"><b>Date&nbsp;&nbsp;01/01/2021 </b></font><b> </b></td><td width="100%" align="center"><font size="3" color="black"><center><strong>Daily Wholesale Prices Of Essential Commodities</strong></center></font></td><td align="right"><font size="4"> <b>Unit:&nbsp;(₹/qtl.)</b></font></td></tr></tbody></table></div></td></tr></thead><tbody><tr><td><div class="MyCssClass"><div>
+		<table cellspacing="0" align="Center" rules="all" border="1" id="gv0" style="border-collapse:collapse;">
+			<thead>
+				<tr>
+					<th scope="col" style="background-color:Gray;">Centre</th><th scope="col">Rice</th><th scope="col">Wheat</th><th scope="col">Atta (Wheat)</th><th scope="col">Gram Dal</th><th scope="col">Tur/Arhar Dal</th><th scope="col">Urad Dal</th><th scope="col">Moong Dal</th><th scope="col">Masoor Dal</th><th scope="col">Sugar</th><th scope="col">Milk @</th><th scope="col">Groundnut Oil (Packed)</th><th scope="col">Mustard Oil (Packed)</th><th scope="col">Vanaspati (Packed)</th><th scope="col">Soya Oil (Packed)</th><th scope="col">Sunflower Oil (Packed)</th><th scope="col">Palm Oil (Packed)</th><th scope="col">Gur</th><th scope="col">Tea Loose</th><th scope="col">Salt Pack (Iodised)</th><th scope="col">Potato</th><th scope="col">Onion</th><th align="center" scope="col">Tomato</th>
+				</tr>
+			</thead><tbody>
+				<tr align="left">
+					<td align="center" style="background-color:Gray;font-weight:bold;">NORTH ZONE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td align="center"></td>
+				</tr><tr align="left">
+					<td>CHANDIGARH</td><td>2750</td><td>1800</td><td>2200</td><td>6000</td><td>9200</td><td>9000</td><td>9600</td><td>6800</td><td>3350</td><td>4400</td><td>14500</td><td>10500</td><td>10200</td><td>10700</td><td>11500</td><td>NR</td><td>3150</td><td>22500</td><td>1800</td><td>1250</td><td>2200</td><td align="center">2350</td>
+				</tr><tr align="left">
+					<td>DELHI</td><td>2700</td><td>1800</td><td>1980</td><td>5700</td><td>8450</td><td>8800</td><td>8650</td><td>6700</td><td>3450</td><td>NR</td><td>16850</td><td>13553</td><td>11136</td><td>11941</td><td>13919</td><td>10696</td><td>2800</td><td>21000</td><td>1780</td><td>1000</td><td>1725</td><td align="center">1650</td>
+				</tr><tr align="left">
+					<td>HISAR</td><td>2500</td><td>2000</td><td>2200</td><td>6800</td><td>9500</td><td>9400</td><td>9500</td><td>7800</td><td>3500</td><td>4400</td><td>14200</td><td>10500</td><td>9100</td><td>9700</td><td>10800</td><td>8800</td><td>3200</td><td>21000</td><td>1800</td><td>1200</td><td>2500</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>KARNAL</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>PANCHKULA</td><td>3000</td><td>2000</td><td>2400</td><td>6000</td><td>9000</td><td>9000</td><td>10000</td><td>8000</td><td>3500</td><td>5400</td><td>14285</td><td>12637</td><td>9890</td><td>12087</td><td>12087</td><td>9890</td><td>4000</td><td>18000</td><td>1700</td><td>2000</td><td>3500</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>GURGAON</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>SHIMLA</td><td>3100</td><td>NR</td><td>2550</td><td>6800</td><td>9100</td><td>9600</td><td>10500</td><td>6500</td><td>3800</td><td>NR</td><td>15385</td><td>13187</td><td>9780</td><td>10220</td><td>NR</td><td>NR</td><td>3900</td><td>20000</td><td>1800</td><td>1500</td><td>3000</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>MANDI</td><td>2750</td><td>NR</td><td>2100</td><td>7120</td><td>10250</td><td>10700</td><td>10250</td><td>7250</td><td>3700</td><td>NR</td><td>13700</td><td>14600</td><td>10500</td><td>10420</td><td>NR</td><td>NR</td><td>3750</td><td>NR</td><td>1850</td><td>3200</td><td>3700</td><td align="center">3550</td>
+				</tr><tr align="left">
+					<td>DHARAMSHALA</td><td>2500</td><td>NR</td><td>2300</td><td>7300</td><td>10800</td><td>10800</td><td>10300</td><td>7600</td><td>3750</td><td>NR</td><td>11325</td><td>15500</td><td>10500</td><td>11200</td><td>13600</td><td>NR</td><td>3800</td><td>22000</td><td>1800</td><td>1400</td><td>2500</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>SOLAN</td><td>3250</td><td>NR</td><td>2100</td><td>7080</td><td>10600</td><td>11000</td><td>10166</td><td>7000</td><td>3750</td><td>NR</td><td>NR</td><td>16923</td><td>12527</td><td>12417</td><td>NR</td><td>NR</td><td>3400</td><td>23000</td><td>1900</td><td>1000</td><td>2500</td><td align="center">2800</td>
+				</tr><tr align="left">
+					<td>UNA</td><td>4800</td><td>NR</td><td>2200</td><td>6050</td><td>9450</td><td>9700</td><td>9600</td><td>6800</td><td>3600</td><td>NR</td><td>16100</td><td>13000</td><td>11100</td><td>12100</td><td>13700</td><td>10900</td><td>3600</td><td>24700</td><td>1750</td><td>1200</td><td>3500</td><td align="center">3500</td>
+				</tr><tr align="left">
+					<td>SRINAGAR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>JAMMU</td><td>3200</td><td>1850</td><td>2200</td><td>5800</td><td>9300</td><td>9600</td><td>9000</td><td>6400</td><td>3700</td><td>4000</td><td>NR</td><td>16373</td><td>12087</td><td>13956</td><td>14285</td><td>11978</td><td>3200</td><td>25000</td><td>1860</td><td>1100</td><td>3300</td><td align="center">2600</td>
+				</tr><tr align="left">
+					<td>POONCH</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>AMRITSAR</td><td>2800</td><td>1800</td><td>2250</td><td>5790</td><td>9300</td><td>8400</td><td>9450</td><td>6800</td><td>3650</td><td>4250</td><td>12307</td><td>11868</td><td>11978</td><td>11538</td><td>11593</td><td>NR</td><td>4200</td><td>22000</td><td>1900</td><td>2000</td><td>3000</td><td align="center">3000</td>
+				</tr><tr align="left">
+					<td>LUDHIANA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>BATHINDA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>LUCKNOW</td><td>2300</td><td>1730</td><td>1810</td><td>6350</td><td>9240</td><td>13360</td><td>9870</td><td>6600</td><td>3560</td><td>4880</td><td>12175</td><td>13406</td><td>9769</td><td>9538</td><td>9758</td><td>9659</td><td>3200</td><td>18450</td><td>1580</td><td>1100</td><td>2240</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>KANPUR</td><td>2500</td><td>1600</td><td>2500</td><td>6200</td><td>9900</td><td>11500</td><td>8500</td><td>6200</td><td>4000</td><td>NR</td><td>12637</td><td>12197</td><td>7912</td><td>12967</td><td>13406</td><td>9890</td><td>4000</td><td>13000</td><td>1500</td><td>2500</td><td>4000</td><td align="center">4500</td>
+				</tr><tr align="left">
+					<td>VARANASI</td><td>2230</td><td>1730</td><td>2300</td><td>6350</td><td>8700</td><td>8850</td><td>8800</td><td>6900</td><td>3550</td><td>NR</td><td>15384</td><td>14615</td><td>9450</td><td>11318</td><td>12307</td><td>7692</td><td>3520</td><td>23000</td><td>NR</td><td>1200</td><td>2080</td><td align="center">1080</td>
+				</tr><tr align="left">
+					<td>AGRA</td><td>2560</td><td>1635</td><td>1900</td><td>6800</td><td>9550</td><td>9050</td><td>8800</td><td>6200</td><td>3500</td><td>5000</td><td>15934</td><td>12527</td><td>10758</td><td>11538</td><td>12637</td><td>12087</td><td>3250</td><td>20000</td><td>1800</td><td>950</td><td>2450</td><td align="center">1000</td>
+				</tr><tr align="left">
+					<td>JHANSI</td><td>2600</td><td>1800</td><td>1900</td><td>5700</td><td>9200</td><td>8800</td><td>8400</td><td>6300</td><td>3500</td><td>4300</td><td>17582</td><td>14285</td><td>11538</td><td>12087</td><td>14285</td><td>NR</td><td>2800</td><td>22000</td><td>1700</td><td>900</td><td>1000</td><td align="center">1000</td>
+				</tr><tr align="left">
+					<td>MEERUT</td><td>2825</td><td>1770</td><td>2000</td><td>6375</td><td>8575</td><td>8550</td><td>8590</td><td>8475</td><td>3420</td><td>NR</td><td>NR</td><td>12750</td><td>10800</td><td>10400</td><td>NR</td><td>9200</td><td>2700</td><td>NR</td><td>NR</td><td>965</td><td>2240</td><td align="center">1600</td>
+				</tr><tr align="left">
+					<td>ALLAHABAD</td><td>2000</td><td>1950</td><td>2500</td><td>6700</td><td>9700</td><td>10700</td><td>10000</td><td>7500</td><td>3500</td><td>3500</td><td>13900</td><td>12100</td><td>8200</td><td>9700</td><td>10300</td><td>9700</td><td>3500</td><td>17000</td><td>1800</td><td>2000</td><td>2500</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>GORAKHPUR</td><td>2300</td><td>1800</td><td>2100</td><td>6000</td><td>9000</td><td>9500</td><td>11000</td><td>6000</td><td>3400</td><td>4400</td><td>17032</td><td>13736</td><td>8791</td><td>8791</td><td>10769</td><td>8241</td><td>3800</td><td>16000</td><td>1800</td><td>1000</td><td>2000</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>DEHRADUN</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>HALDWANI</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>RUDRAPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>HARIDWAR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td align="center" style="background-color:Gray;font-weight:bold;">WEST ZONE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td align="center"></td>
+				</tr><tr align="left">
+					<td>RAIPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DURG</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>AMBIKAPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>BILASPUR-CG</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>JAGDALPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>PANAJI</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>AHMEDABAD</td><td>2300</td><td>2000</td><td>2300</td><td>6200</td><td>8900</td><td>8800</td><td>9200</td><td>6900</td><td>3600</td><td>NR</td><td>15200</td><td>11300</td><td>8300</td><td>10300</td><td>11500</td><td>9300</td><td>4700</td><td>23000</td><td>1400</td><td>4000</td><td>4500</td><td align="center">4500</td>
+				</tr><tr align="left">
+					<td>RAJKOT</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>SURAT</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>BHUJ</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>BHOPAL</td><td>1900</td><td>1750</td><td>1900</td><td>7100</td><td>10000</td><td>9200</td><td>8800</td><td>7600</td><td>3600</td><td>4300</td><td>13500</td><td>12000</td><td>8500</td><td>10900</td><td>8200</td><td>7500</td><td>4200</td><td>23000</td><td>1500</td><td>1650</td><td>1700</td><td align="center">1900</td>
+				</tr><tr align="left">
+					<td>INDORE</td><td>2300</td><td>1800</td><td>2000</td><td>6800</td><td>9600</td><td>9700</td><td>9000</td><td>7400</td><td>3400</td><td>4600</td><td>13000</td><td>11500</td><td>9400</td><td>9900</td><td>10500</td><td>7800</td><td>3900</td><td>23700</td><td>1500</td><td>2900</td><td>2300</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>GWALIOR</td><td>2500</td><td>1800</td><td>2200</td><td>5700</td><td>9000</td><td>7800</td><td>8500</td><td>6000</td><td>3525</td><td>5500</td><td>16000</td><td>12500</td><td>NR</td><td>11500</td><td>13000</td><td>7200</td><td>3200</td><td>27000</td><td>1700</td><td>1400</td><td>1700</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>JABALPUR</td><td>2300</td><td>2250</td><td>2300</td><td>6750</td><td>10300</td><td>8900</td><td>8200</td><td>6500</td><td>3600</td><td>5000</td><td>12400</td><td>9700</td><td>8000</td><td>7900</td><td>9900</td><td>8000</td><td>3300</td><td>21200</td><td>800</td><td>3000</td><td>2600</td><td align="center">2100</td>
+				</tr><tr align="left">
+					<td>REWA</td><td>2290</td><td>1800</td><td>2210</td><td>6000</td><td>9200</td><td>7000</td><td>7500</td><td>6500</td><td>3700</td><td>4200</td><td>12400</td><td>10500</td><td>8500</td><td>9600</td><td>10400</td><td>NR</td><td>4200</td><td>20000</td><td>1000</td><td>1500</td><td>3000</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>SAGAR</td><td>3250</td><td>2500</td><td>2360</td><td>5800</td><td>9600</td><td>9700</td><td>9000</td><td>6800</td><td>3520</td><td>4500</td><td>16300</td><td>13300</td><td>10600</td><td>NR</td><td>13500</td><td>NR</td><td>3200</td><td>19900</td><td>NR</td><td>1600</td><td>1700</td><td align="center">1600</td>
+				</tr><tr align="left">
+					<td>JHABUA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>HOSHANGABAD</td><td>2300</td><td>2000</td><td>2100</td><td>5600</td><td>8500</td><td>9000</td><td>8600</td><td>6500</td><td>3300</td><td>4000</td><td>14500</td><td>13500</td><td>8500</td><td>10500</td><td>11500</td><td>NR</td><td>4000</td><td>22000</td><td>1000</td><td>1500</td><td>2000</td><td align="center">1000</td>
+				</tr><tr align="left">
+					<td>SHAHDOL</td><td>2200</td><td>2000</td><td>2200</td><td>6000</td><td>9000</td><td>8000</td><td>9000</td><td>6000</td><td>3700</td><td>4000</td><td>15500</td><td>13000</td><td>9000</td><td>NR</td><td>13500</td><td>NR</td><td>3300</td><td>26000</td><td>1200</td><td>1400</td><td>2400</td><td align="center">1600</td>
+				</tr><tr align="left">
+					<td>UJJAIN</td><td>2500</td><td>1800</td><td>2000</td><td>6000</td><td>8500</td><td>9500</td><td>9500</td><td>7500</td><td>3500</td><td>4000</td><td>14000</td><td>12400</td><td>8500</td><td>10000</td><td>10500</td><td>8500</td><td>3500</td><td>22200</td><td>1800</td><td>3000</td><td>2500</td><td align="center">2200</td>
+				</tr><tr align="left">
+					<td>MUMBAI</td><td>2600</td><td>3000</td><td>2500</td><td>6200</td><td>8800</td><td>9200</td><td>10500</td><td>6300</td><td>3232</td><td>4000</td><td>13900</td><td>12250</td><td>10600</td><td>11700</td><td>12875</td><td>10650</td><td>4500</td><td>24300</td><td>1800</td><td>2000</td><td>2850</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>NAGPUR</td><td>2400</td><td>2500</td><td>2900</td><td>5400</td><td>7400</td><td>7400</td><td>8000</td><td>6000</td><td>3617</td><td>4400</td><td>14900</td><td>12200</td><td>10300</td><td>NR</td><td>12800</td><td>12200</td><td>4150</td><td>12867</td><td>1450</td><td>2300</td><td>2400</td><td align="center">1100</td>
+				</tr><tr align="left">
+					<td>PUNE</td><td>3850</td><td>2612</td><td>3000</td><td>5900</td><td>8600</td><td>9350</td><td>9350</td><td>6500</td><td>3400</td><td>3533</td><td>15433</td><td>14200</td><td>10500</td><td>11933</td><td>12066</td><td>11033</td><td>3300</td><td>21700</td><td>1483</td><td>1850</td><td>2400</td><td align="center">1066</td>
+				</tr><tr align="left">
+					<td>NASHIK</td><td>4867</td><td>4750</td><td>4733</td><td>8700</td><td>7467</td><td>7100</td><td>7033</td><td>6033</td><td>3600</td><td>3400</td><td>12833</td><td>11267</td><td>8667</td><td>8533</td><td>9600</td><td>8067</td><td>4433</td><td>24667</td><td>1833</td><td>1833</td><td>1900</td><td align="center">1417</td>
+				</tr><tr align="left">
+					<td>JAIPUR</td><td>2400</td><td>1900</td><td>2400</td><td>5300</td><td>9200</td><td>8400</td><td>8700</td><td>6500</td><td>3600</td><td>4000</td><td>16813</td><td>13186</td><td>9153</td><td>12450</td><td>13186</td><td>NR</td><td>3200</td><td>20000</td><td>1800</td><td>1500</td><td>2000</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>JODHPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>KOTA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>UDAIPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td align="center" style="background-color:Gray;font-weight:bold;">EAST ZONE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td align="center"></td>
+				</tr><tr align="left">
+					<td>PATNA</td><td>2500</td><td>1600</td><td>2100</td><td>5900</td><td>8200</td><td>9400</td><td>9200</td><td>6300</td><td>3600</td><td>4300</td><td>NR</td><td>12666</td><td>10133</td><td>13529</td><td>13186</td><td>11933</td><td>3200</td><td>27000</td><td>1700</td><td>1700</td><td>3000</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>BHAGALPUR</td><td>2300</td><td>1800</td><td>2050</td><td>5800</td><td>9500</td><td>9800</td><td>9000</td><td>6500</td><td>3700</td><td>4200</td><td>NR</td><td>13200</td><td>9600</td><td>11900</td><td>14500</td><td>10500</td><td>3500</td><td>26000</td><td>700</td><td>1350</td><td>2550</td><td align="center">2800</td>
+				</tr><tr align="left">
+					<td>PURNIA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DARBHANGA</td><td>2400</td><td>1800</td><td>1850</td><td>6100</td><td>8200</td><td>10000</td><td>9700</td><td>6800</td><td>3625</td><td>4000</td><td>10439</td><td>12087</td><td>10219</td><td>12087</td><td>10989</td><td>10769</td><td>4200</td><td>21000</td><td>825</td><td>1500</td><td>2800</td><td align="center">3200</td>
+				</tr><tr align="left">
+					<td>GAYA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>MUZZAFARPUR</td><td>3000</td><td>1600</td><td>2050</td><td>6200</td><td>9200</td><td>9850</td><td>9500</td><td>6300</td><td>3600</td><td>4000</td><td>NR</td><td>13000</td><td>11000</td><td>12250</td><td>14000</td><td>10700</td><td>3800</td><td>35000</td><td>1800</td><td>1400</td><td>2500</td><td align="center">2700</td>
+				</tr><tr align="left">
+					<td>RANCHI</td><td>3073</td><td>2400</td><td>2100</td><td>6200</td><td>8800</td><td>9300</td><td>9200</td><td>6400</td><td>3750</td><td>NR</td><td>18000</td><td>NR</td><td>9535</td><td>12400</td><td>13335</td><td>11270</td><td>3200</td><td>NR</td><td>1680</td><td>1500</td><td>2500</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>BHUBANESHWAR</td><td>2700</td><td>2800</td><td>2050</td><td>5900</td><td>8500</td><td>9500</td><td>9000</td><td>6200</td><td>3700</td><td>NR</td><td>NR</td><td>14333</td><td>10100</td><td>NR</td><td>NR</td><td>11800</td><td>4200</td><td>NR</td><td>1780</td><td>1900</td><td>3400</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>CUTTACK</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>SAMBALPUR</td><td>2500</td><td>2800</td><td>2000</td><td>5800</td><td>8500</td><td>9100</td><td>9000</td><td>6000</td><td>3600</td><td>NR</td><td>NR</td><td>14333</td><td>10000</td><td>NR</td><td>14454</td><td>11800</td><td>3250</td><td>NR</td><td>1820</td><td>2000</td><td>3000</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>ROURKELA</td><td>2500</td><td>3000</td><td>2500</td><td>6000</td><td>8600</td><td>9100</td><td>9000</td><td>6000</td><td>3650</td><td>NR</td><td>NR</td><td>13900</td><td>9500</td><td>9600</td><td>13666</td><td>11666</td><td>3300</td><td>16000</td><td>1800</td><td>2200</td><td>2800</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>BERHAMPUR</td><td>2600</td><td>3200</td><td>3000</td><td>6500</td><td>8500</td><td>10500</td><td>9400</td><td>7000</td><td>3900</td><td>NR</td><td>NR</td><td>14600</td><td>10220</td><td>NR</td><td>NR</td><td>12220</td><td>4000</td><td>20000</td><td>1750</td><td>2200</td><td>2800</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>JEYPORE</td><td>2600</td><td>2766</td><td>2320</td><td>6200</td><td>9000</td><td>9500</td><td>9200</td><td>6400</td><td>3800</td><td>NR</td><td>NR</td><td>14500</td><td>9890</td><td>NR</td><td>14200</td><td>11400</td><td>3900</td><td>17000</td><td>1800</td><td>2100</td><td>2700</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>BALASORE</td><td>2400</td><td>3300</td><td>2320</td><td>5850</td><td>8500</td><td>9500</td><td>9000</td><td>6000</td><td>3640</td><td>4600</td><td>NR</td><td>13667</td><td>9333</td><td>NR</td><td>13733</td><td>11933</td><td>4300</td><td>22000</td><td>1720</td><td>1950</td><td>3000</td><td align="center">1700</td>
+				</tr><tr align="left">
+					<td>BARIPADA</td><td>2100</td><td>2900</td><td>2100</td><td>6200</td><td>9200</td><td>9400</td><td>9000</td><td>6000</td><td>3700</td><td>4370</td><td>NR</td><td>14333</td><td>9600</td><td>NR</td><td>14285</td><td>11733</td><td>3500</td><td>NR</td><td>1800</td><td>1900</td><td>3200</td><td align="center">2400</td>
+				</tr><tr align="left">
+					<td>BALANGIR</td><td>2800</td><td>3200</td><td>2800</td><td>6500</td><td>9000</td><td>9500</td><td>9000</td><td>6400</td><td>3520</td><td>4600</td><td>NR</td><td>14700</td><td>9700</td><td>NR</td><td>14200</td><td>11200</td><td>3500</td><td>43000</td><td>1800</td><td>2300</td><td>3000</td><td align="center">1800</td>
+				</tr><tr align="left">
+					<td>KOLKATA</td><td>2500</td><td>NR</td><td>2100</td><td>5800</td><td>9000</td><td>9300</td><td>9000</td><td>6000</td><td>3600</td><td>3925</td><td>18000</td><td>13400</td><td>11200</td><td>12000</td><td>14000</td><td>10800</td><td>3200</td><td>12000</td><td>700</td><td>2250</td><td>3500</td><td align="center">3500</td>
+				</tr><tr align="left">
+					<td>SILIGURI</td><td>2900</td><td>2400</td><td>2900</td><td>7600</td><td>10600</td><td>10650</td><td>10600</td><td>10300</td><td>3690</td><td>3900</td><td>16600</td><td>10900</td><td>8800</td><td>10400</td><td>11200</td><td>8300</td><td>4500</td><td>16600</td><td>800</td><td>1500</td><td>3000</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>PURULIA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>KHARAGPUR</td><td>3000</td><td>2000</td><td>2800</td><td>6300</td><td>9300</td><td>10300</td><td>12800</td><td>10800</td><td>3800</td><td>4300</td><td>14500</td><td>12300</td><td>10800</td><td>10600</td><td>11000</td><td>8600</td><td>4800</td><td>24800</td><td>700</td><td>2800</td><td>3800</td><td align="center">4800</td>
+				</tr><tr align="left">
+					<td>RAMPURHAT</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>MALDA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>RAIGANJ</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td align="center" style="background-color:Gray;font-weight:bold;">NORTH EAST ZONE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td align="center"></td>
+				</tr><tr align="left">
+					<td>PORT BLAIR</td><td>3400</td><td>3800</td><td>4800</td><td>7500</td><td>10200</td><td>11400</td><td>10200</td><td>7800</td><td>4300</td><td>5750</td><td>NR</td><td>15384</td><td>14065</td><td>NR</td><td>14945</td><td>12637</td><td>6200</td><td>20000</td><td>1120</td><td>4500</td><td>4000</td><td align="center">5000</td>
+				</tr><tr align="left">
+					<td>MAYABUNDER</td><td>4000</td><td>NR</td><td>5400</td><td>8300</td><td>11000</td><td>13400</td><td>11600</td><td>8400</td><td>4800</td><td>6200</td><td>NR</td><td>16153</td><td>NR</td><td>NR</td><td>15164</td><td>13956</td><td>6200</td><td>NR</td><td>1800</td><td>4500</td><td>4700</td><td align="center">5500</td>
+				</tr><tr align="left">
+					<td>ITANAGAR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>GUWAHATI</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>IMPHAL</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>SHILLONG</td><td>1955</td><td>2500</td><td>2400</td><td>7000</td><td>10700</td><td>10000</td><td>9900</td><td>8800</td><td>3900</td><td>6125</td><td>NR</td><td>NR</td><td>8800</td><td>11466</td><td>NR</td><td>NR</td><td>4500</td><td>12000</td><td>2000</td><td>4200</td><td>5500</td><td align="center">3000</td>
+				</tr><tr align="left">
+					<td>TURA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>JOWAI</td><td>2300</td><td>2650</td><td>2600</td><td>7800</td><td>10500</td><td>10200</td><td>10200</td><td>7500</td><td>4000</td><td>6300</td><td>NR</td><td>12000</td><td>12000</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>36000</td><td>2200</td><td>2200</td><td>4250</td><td align="center">4000</td>
+				</tr><tr align="left">
+					<td>AIZAWL</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DIMAPUR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>GANGTOK</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>AGARTALA</td><td>2700</td><td>NR</td><td>2600</td><td>6500</td><td>NR</td><td>9500</td><td>10000</td><td>NR</td><td>3680</td><td>NR</td><td>NR</td><td>13400</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>4400</td><td>16000</td><td>1880</td><td>2000</td><td>3500</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td align="center" style="background-color:Gray;font-weight:bold;">SOUTH ZONE</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td align="center"></td>
+				</tr><tr align="left">
+					<td>VIJAYWADA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>VISAKHAPATNAM</td><td>3400</td><td>2560</td><td>2340</td><td>6600</td><td>8800</td><td>10000</td><td>9800</td><td>6900</td><td>3600</td><td>4600</td><td>15000</td><td>11700</td><td>9000</td><td>NR</td><td>13000</td><td>10500</td><td>4300</td><td>21000</td><td>770</td><td>2700</td><td>2800</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>KURNOOL</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>TIRUPATHI</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>BENGALURU</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DHARWAD</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>MANGALORE</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>MYSORE</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>T.PURAM</td><td>3120</td><td>2650</td><td>2800</td><td>7400</td><td>10700</td><td>11500</td><td>9850</td><td>7400</td><td>3660</td><td>3942</td><td>17000</td><td>15000</td><td>11000</td><td>NR</td><td>12500</td><td>10500</td><td>5200</td><td>22500</td><td>720</td><td>3800</td><td>3300</td><td align="center">2500</td>
+				</tr><tr align="left">
+					<td>ERNAKULAM</td><td>3600</td><td>2950</td><td>2800</td><td>7000</td><td>10200</td><td>10500</td><td>10000</td><td>7500</td><td>3480</td><td>4400</td><td>NR</td><td>14300</td><td>11500</td><td>NR</td><td>13200</td><td>NR</td><td>4600</td><td>21000</td><td>720</td><td>4000</td><td>NR</td><td align="center">2750</td>
+				</tr><tr align="left">
+					<td>KOZHIKODE</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>THRISSUR</td><td>3400</td><td>2700</td><td>NR</td><td>7500</td><td>10000</td><td>10500</td><td>10300</td><td>7500</td><td>3500</td><td>NR</td><td>17833</td><td>14600</td><td>11350</td><td>NR</td><td>12200</td><td>11666</td><td>4000</td><td>23500</td><td>760</td><td>3800</td><td>3000</td><td align="center">1700</td>
+				</tr><tr align="left">
+					<td>PALAKKAD</td><td>3200</td><td>3300</td><td>2900</td><td>6300</td><td>8800</td><td>10000</td><td>9500</td><td>7500</td><td>3540</td><td>4300</td><td>17700</td><td>16200</td><td>13000</td><td>NR</td><td>14200</td><td>12000</td><td>4600</td><td>19400</td><td>800</td><td>3300</td><td>3300</td><td align="center">1800</td>
+				</tr><tr align="left">
+					<td>WAYANAD</td><td>3350</td><td>2800</td><td>2900</td><td>8500</td><td>10400</td><td>10600</td><td>9800</td><td>8200</td><td>3560</td><td>4600</td><td>NR</td><td>NR</td><td>12000</td><td>NR</td><td>13200</td><td>11200</td><td>3900</td><td>23000</td><td>860</td><td>4300</td><td>3100</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>PUDUCHERRY</td><td>3500</td><td>3200</td><td>2900</td><td>7100</td><td>11000</td><td>11500</td><td>10500</td><td>8000</td><td>3400</td><td>NR</td><td>16800</td><td>15100</td><td>12700</td><td>NR</td><td>13800</td><td>11300</td><td>5000</td><td>26000</td><td>1750</td><td>3700</td><td>3300</td><td align="center">1100</td>
+				</tr><tr align="left">
+					<td>CHENNAI</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DINDIGUL</td><td>4850</td><td>3000</td><td>3900</td><td>7250</td><td>9900</td><td>11300</td><td>9900</td><td>6560</td><td>3640</td><td>NR</td><td>17950</td><td>NR</td><td>9950</td><td>NR</td><td>12750</td><td>10450</td><td>4600</td><td>NR</td><td>1650</td><td>3400</td><td>3300</td><td align="center">1400</td>
+				</tr><tr align="left">
+					<td>THIRUCHIRAPALLI</td><td>4800</td><td>2760</td><td>2760</td><td>6700</td><td>9100</td><td>11500</td><td>10100</td><td>6800</td><td>3530</td><td>NR</td><td>14800</td><td>NR</td><td>10000</td><td>NR</td><td>12200</td><td>10000</td><td>4133</td><td>17000</td><td>1620</td><td>2700</td><td>3000</td><td align="center">1000</td>
+				</tr><tr align="left">
+					<td>COIMBATORE</td><td>4020</td><td>2950</td><td>3200</td><td>7400</td><td>10000</td><td>11600</td><td>9600</td><td>7200</td><td>3570</td><td>NR</td><td>17580</td><td>NR</td><td>10850</td><td>NR</td><td>12637</td><td>10750</td><td>4900</td><td>NR</td><td>1660</td><td>3800</td><td>3200</td><td align="center">1500</td>
+				</tr><tr align="left">
+					<td>TIRUNELVELI</td><td>3000</td><td>3000</td><td>3290</td><td>7000</td><td>9500</td><td>11000</td><td>10000</td><td>7000</td><td>3600</td><td>NR</td><td>18121</td><td>NR</td><td>10692</td><td>NR</td><td>14055</td><td>11878</td><td>4200</td><td>NR</td><td>1800</td><td>3000</td><td>3000</td><td align="center">800</td>
+				</tr><tr align="left">
+					<td>CUDDALORE</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>DHARMAPURI</td><td>4700</td><td>3150</td><td>3000</td><td>6900</td><td>9500</td><td>11000</td><td>9500</td><td>7200</td><td>3550</td><td>NR</td><td>17032</td><td>NR</td><td>9340</td><td>NR</td><td>13956</td><td>11428</td><td>4100</td><td>NR</td><td>1700</td><td>3500</td><td>3100</td><td align="center">1200</td>
+				</tr><tr align="left">
+					<td>VELLORE</td><td>3900</td><td>3300</td><td>2540</td><td>6800</td><td>9500</td><td>11000</td><td>9500</td><td>7200</td><td>3460</td><td>2800</td><td>15670</td><td>13000</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>4000</td><td>27000</td><td>1600</td><td>3000</td><td>3200</td><td align="center">1000</td>
+				</tr><tr align="left">
+					<td>RAMANATHAPURAM</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>HYDERABAD</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>KARIMNAGAR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>WARANGAL</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>ADILABAD</td><td>4000</td><td>2700</td><td>3500</td><td>6400</td><td>9200</td><td>10100</td><td>9600</td><td>6800</td><td>3400</td><td>5500</td><td>13800</td><td>11800</td><td>5800</td><td>7500</td><td>12400</td><td>10300</td><td>4500</td><td>27600</td><td>1800</td><td>4300</td><td>3500</td><td align="center">2000</td>
+				</tr><tr align="left">
+					<td>SURYAPET</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td>JADCHERLA</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td>NR</td><td align="center">NR</td>
+				</tr><tr align="left">
+					<td style="font-weight:bold;">Commodity Name</td><td style="font-weight:bold;">Rice</td><td style="font-weight:bold;">Wheat</td><td style="font-weight:bold;">Atta (Wheat)</td><td style="font-weight:bold;">Gram Dal</td><td style="font-weight:bold;">Tur/Arhar Dal</td><td style="font-weight:bold;">Urad Dal</td><td style="font-weight:bold;">Moong Dal</td><td style="font-weight:bold;">Masoor Dal</td><td style="font-weight:bold;">Sugar</td><td style="font-weight:bold;">Milk @</td><td style="font-weight:bold;">Groundnut Oil (Packed)</td><td style="font-weight:bold;">Mustard Oil (Packed)</td><td style="font-weight:bold;">Vanaspati (Packed)</td><td style="font-weight:bold;">Soya Oil (Packed)</td><td style="font-weight:bold;">Sunflower Oil (Packed)</td><td style="font-weight:bold;">Palm Oil (Packed)</td><td style="font-weight:bold;">Gur</td><td style="font-weight:bold;">Tea Loose</td><td style="font-weight:bold;">Salt Pack (Iodised)</td><td style="font-weight:bold;">Potato</td><td style="font-weight:bold;">Onion</td><td align="center" style="font-weight:bold;">Tomato</td>
+				</tr><tr align="left">
+					<td align="right" style="background-color:Gray;font-weight:bold;">Average Price</td><td>2923.04</td><td>2414.15</td><td>2533.28</td><td>6509.64</td><td>9330.62</td><td>9806.67</td><td>9468.25</td><td>6978.21</td><td>3624.91</td><td>4459.44</td><td>15141.67</td><td>13239.61</td><td>10095.58</td><td>10989.67</td><td>12625.9</td><td>10464.85</td><td>3919.65</td><td>21941.1</td><td>1526.83</td><td>2263.01</td><td>2889.49</td><td align="center">2213.96</td>
+				</tr><tr align="left">
+					<td align="right" style="background-color:Gray;font-weight:bold;">Maximum Price</td><td>4867</td><td>4750</td><td>5400</td><td>8700</td><td>11000</td><td>13400</td><td>12800</td><td>10800</td><td>4800</td><td>6300</td><td>18121</td><td>16923</td><td>14065</td><td>13956</td><td>15164</td><td>13956</td><td>6200</td><td>43000</td><td>2200</td><td>4500</td><td>5500</td><td align="center">5500</td>
+				</tr><tr align="left">
+					<td align="right" style="background-color:Gray;font-weight:bold;">Minimum Price</td><td>1900</td><td>1600</td><td>1810</td><td>5300</td><td>7400</td><td>7000</td><td>7033</td><td>6000</td><td>3232</td><td>2800</td><td>10439</td><td>9700</td><td>5800</td><td>7500</td><td>8200</td><td>7200</td><td>2700</td><td>12000</td><td>700</td><td>900</td><td>1000</td><td align="center">800</td>
+				</tr><tr align="left">
+					<td align="right" style="background-color:Gray;font-weight:bold;">Modal Price</td><td>2500</td><td>1800</td><td>2100</td><td>6100</td><td>9100</td><td>9500</td><td>9000</td><td>6000</td><td>3600</td><td>4000</td><td>14500</td><td>13000</td><td>8500</td><td>12087</td><td>13328.3333333333</td><td>10500</td><td>3200</td><td>20000</td><td>1800</td><td>1500</td><td>3000</td><td align="center">2000</td>
+				</tr>
+			</tbody>
+		</table>
+	</div></div></td></tr></tbody><tfoot><tr><td><div><table style="width:100%;"><tbody><tr><td align="left"><b>Source:-&nbsp;&nbsp;</b><i>State civil supplies Dept.</i></td><td align="right">NR&nbsp;-&gt; Not Reported&nbsp;&nbsp;</td><td></td></tr><tr><td colspan="2" style="text-align:center;"><b>Developed by:-&nbsp;&nbsp;</b>National Informatics Centre(NIC)</td></tr><tr></tr></tbody></table></div></td></tr></tfoot></table></div><div style="page-break-after:always"></div>
+</div>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+    
+    </form>
+
+
+</body></html>

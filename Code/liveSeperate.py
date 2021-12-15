@@ -50,7 +50,7 @@ def seperateAGWholesaleData():
 					priceDf = mandiDf[['DATE', 'PRICE']]
 					arrivalDf.to_csv(arrivalFileToSave, index=False)
 					priceDf.to_csv(priceFileToSave, index=False)	
-					print(priceDf.tail())
+					# print(priceDf.tail())
 				except:
 					continue
 
@@ -114,8 +114,8 @@ def seperateFCARetailData():
 	'''
 	print("SEPERATING RETAIL FILES OF THOSE MANDIS WHOSE DATA IS MANDIS ARE IN FCA")
 	for commodity in commodityListRetail:
-		if(commodity != 'GREEN GRAM DAL (MOONG DAL)'):
-			continue
+		# if(commodity != 'GREEN GRAM DAL (MOONG DAL)'):
+		# 	continue
 		# print(commodity)
 		fileToOpen = os.path.join("../Data/Processed/RetailFCA",commodity+".csv",)
 		df = pd.read_csv(fileToOpen, names=['DATE','CENTRE','PRICE'])
@@ -152,7 +152,7 @@ def seperateFCARetailData():
 				priceDf.to_csv(priceFileToSave, index=False)
 
 
-seperateFCARetailData()
+# seperateFCARetailData()
 
 def seperateAGRetailData():
 	'''
