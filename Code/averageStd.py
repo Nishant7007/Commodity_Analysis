@@ -34,7 +34,7 @@ def findAverageAndStd():
 			print(fileToSave)
 			fullDf.to_csv(fileToSave, index = False) 
 
-# findAverageAndStd()
+findAverageAndStd()
 
 
 def findAverageAndStdForArrival():

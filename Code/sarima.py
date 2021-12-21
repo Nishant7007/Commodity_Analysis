@@ -23,8 +23,9 @@ from liveCommonFilesLoader import *
 def sarimaModel():
 	for commodity in commodityList:
 		folderToOpen = os.path.join("../Data/PlottingData", str(commodity), 'Original')
-		files = os.listdir(folderToOpen)
+		files = [f for f in os.listdir(folderToOpen) if (not f.startswith('ARRIVAL') and not f.startswith('Avg'))]
 		files.sort()
+		print(files)
 		for file in files:
 			startTime = time.time()
 			print(commodity, file)
@@ -58,7 +59,7 @@ def sarimaModel():
 				print(startIndex,n)
 				currentSeries = series[:startIndex]
 				exogToTrain = exog[:startIndex]
-				model=pm.arima.auto_arima(currentSeries, exogenous=exogToTrain, start_p=0, d=None, start_q=0, max_p=4, max_d=2, max_q=4,suppress_warnings =True,start_P=1, D=None, start_Q=1, max_P=2, max_D=1, max_Q=2, max_order=5, m=7, seasonal=True, stepwise=True, error_action="ignore")
+				model=pm.arima.auto_arima(currentSeries, exogenous=exogToTrain, start_p=0, d=None, start_q=0, max_p=3, max_d=1, max_q=3,suppress_warnings =True,start_P=1, D=None, start_Q=1, max_P=2, max_D=1, max_Q=2, max_order=4, m=0, seasonal=False, stepwise=True, error_action="ignore")
 				if (startIndex + 30) < n:
 					exogToPredict = exog[startIndex:startIndex+30]
 					predictions = model.predict(30,exogenous=exogToPredict)
@@ -72,7 +73,7 @@ def sarimaModel():
 
 			currentSeries = series[:n]
 			exogToTrain = exog[:n]	
-			model=pm.arima.auto_arima(currentSeries, exogenous=exogToTrain, start_p=0, d=None, start_q=0, max_p=4, max_d=2, max_q=4,suppress_warnings =True,start_P=1, D=None, start_Q=1, max_P=2, max_D=1, max_Q=2, max_order=5, m=7, seasonal=True, stepwise=True, error_action="ignore")
+			model=pm.arima.auto_arima(currentSeries, exogenous=exogToTrain, start_p=0, d=None, start_q=0, max_p=3, max_d=1, max_q=3,suppress_warnings =True,start_P=1, D=None, start_Q=1, max_P=2, max_D=1, max_Q=2, max_order=4, m=0, seasonal=False, stepwise=True, error_action="ignore")
 			exogToPredict = exog[n-30:n]
 			predictions = model.predict(30,exogenous=exogToPredict)
 			forecastedSeries = list(forecastedSeries + predictions.tolist())
