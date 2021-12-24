@@ -8,7 +8,7 @@ The project aims at building an end to end system (dashboard) for following task
 3. News feed: Finding relevant news articles for various anomalies and showing the newsfeed, original and forecasted series, different trends and anomalies detected.
 
 Link to the dashboard: 
-## Link to the dashbaoard
+## Link to the dashboard
 
 [Agricultural_Commoditiy _Analysis](http://13.234.106.156/agri_req/)
 
