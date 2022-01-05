@@ -26,9 +26,9 @@ We are considering 7 commodities for our analysis:
 #### DataSources
 We use 3 Government websites for crawling the wholesale and retail dataaaa:
 
-[Agmarknet](agmarknet.gov.in/)
+[Agmarknet](https://agmarknet.gov.in/)
 
-[Department of Consumer Affairs](fcainfoweb.nic.in)
+[Department of Consumer Affairs](https://fcainfoweb.nic.in)
 
-[National Horticulture Board](nhb.gov.in)
+[National Horticulture Board](https://nhb.gov.in)
 
